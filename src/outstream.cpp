@@ -1,7 +1,7 @@
 #include <string>
 #include <functional>
-#include "soundio/soundio.h"
-#include "soundiopp/soundiopp.h"
+#include <soundio/soundio.h>
+#include "../include/soundiopp/soundiopp.h"
 
 namespace sio
 {
