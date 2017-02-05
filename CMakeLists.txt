@@ -3,12 +3,12 @@ cmake_minimum_required(VERSION 3.6)
 # Project Name (and also the compiled binary's name)
 project(libsoundiopp)
 set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "./lib")
+set(LIBRARY_OUTPUT_PATH  ${CMAKE_SOURCE_DIR}/lib)
 
 # Flags to send to the compiler
 # OBS: Do NOT use Linker OR Include flags (CMAKE take care of this for you)
 set(CMAKE_CXX_FLAGS
-        "${CMAKE_CXX_FLAGS} -std=c++11 -O3"
+        "${CMAKE_CXX_FLAGS} -std=c++11"
 )
 
 # List of Header files (.h, .hh, .hpp)
