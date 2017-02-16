@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Project Name (and also the compiled binary's name)
-project(libsoundiopp)
+project(soundiopp)
 set(CMAKE_BUILD_TYPE Release)
 set(LIBRARY_OUTPUT_PATH  ${CMAKE_SOURCE_DIR}/lib)
 
