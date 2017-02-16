@@ -16,8 +16,8 @@ namespace sio
     typedef SoundIoChannelArea ChannelArea;
     typedef SoundIoSampleRateRange SampleRateRange;
 
-    typedef void (*emit_rtprio_callback_t)();
-    typedef void (*jack_callback_t)(const char*);
+    using emit_rtprio_callback_t = void (*)();
+    using jack_callback_t = void (*)(const char*);
 
     class soundio_error;
     class Context;
@@ -30,10 +30,10 @@ namespace sio
     int get_bytes_per_sample(FormatId format);
     int get_bytes_per_frame(FormatId format, int channel_count);
     int get_bytes_per_second(FormatId format, int channel_count, int sample_rate);
-    const char* error_name(ErrorId err);
-    const char* format_name(FormatId format);
-    const char* backend_name(BackendId backend);
-    const char* channel_name(ChannelId channel);
+    std::string error_name(ErrorId err);
+    std::string format_name(FormatId format);
+    std::string backend_name(BackendId backend);
+    std::string channel_name(ChannelId channel);
     int backend_count();
     bool have_backend(BackendId backend);
     SoundIoBackend get_backend(int index);
@@ -43,7 +43,7 @@ namespace sio
     public:
         explicit soundio_error(int err);
         explicit soundio_error(ErrorId err);
-        virtual const char* what() const noexcept;
+        const char* what() const noexcept override;
     protected:
         ErrorId m_error;
     };

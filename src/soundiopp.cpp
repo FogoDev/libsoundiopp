@@ -3,17 +3,20 @@
 
 namespace sio
 {
+    inline
     int get_bytes_per_sample(FormatId format)
     {
         return soundio_get_bytes_per_sample(static_cast<SoundIoFormat>(format));
     }
 
+    inline
     int get_bytes_per_frame(FormatId format, int channel_count)
     {
         return soundio_get_bytes_per_frame(
             static_cast<SoundIoFormat>(format), channel_count);
     }
-
+    
+    inline
     int get_bytes_per_second(
         FormatId format, int channel_count, int sample_rate)
     {
@@ -21,37 +24,44 @@ namespace sio
             static_cast<SoundIoFormat>(format), channel_count, sample_rate);
     }
 
-    const char* error_name(ErrorId err)
+    inline
+    std::string error_name(ErrorId err)
     {
-        return soundio_strerror(static_cast<int>(err));
+        return std::string(soundio_strerror(static_cast<int>(err)));
     }
 
-    const char* format_name(FormatId format)
+    inline
+    std::string format_name(FormatId format)
     {
-        return soundio_format_string(static_cast<SoundIoFormat>(format));
+        return std::string(soundio_format_string(static_cast<SoundIoFormat>(format)));
     }
 
-    const char* backend_name(BackendId backend)
+    inline
+    std::string backend_name(BackendId backend)
     {
-        return soundio_backend_name(static_cast<SoundIoBackend>(backend));
+        return std::string(soundio_backend_name(static_cast<SoundIoBackend>(backend)));
     }
 
-    const char* channel_name(ChannelId channel)
+    inline
+    std::string channel_name(ChannelId channel)
     {
-        return soundio_get_channel_name(static_cast<SoundIoChannelId>(channel));
+        return std::string(soundio_get_channel_name(static_cast<SoundIoChannelId>(channel)));
     }
-
+    
+    inline
     int backend_count()
     {
         // Work around api bug
         return soundio_backend_count(nullptr);
     }
-
+    
+    inline
     bool have_backend(BackendId backend)
     {
         return soundio_have_backend(static_cast<SoundIoBackend>(backend));
     }
-
+    
+    inline
     SoundIoBackend get_backend(int index)
     {
         // Work around api bug
