@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5)
 
 # Project Name (and also the compiled binary's name)
 project(libsoundiopp)
